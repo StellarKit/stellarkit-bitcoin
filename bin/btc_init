@@ -11,6 +11,10 @@ if [ ! -e "$HOME/.bitcoin/bitcoin.conf" ]; then
 
     # Seed a random password for JSON RPC server
     cat <<EOF > $HOME/.bitcoin/bitcoin.conf
+zmqpubhashtx=${ZMQPUBHASHTX:-""}
+zmqpubhashblock=${ZMQPUBHASHBLOCK:-""}
+zmqpubhashblock=${ZMQPUBRAWBLOCK:-""}
+zmqpubrawtx=${ZMQPUBRAWTX:-""}
 prune=${PRUNE:-0}
 testnet=${TESTNET:-1}
 disablewallet=${DISABLEWALLET:-1}
