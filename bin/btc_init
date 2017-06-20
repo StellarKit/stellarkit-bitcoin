@@ -4,17 +4,12 @@ set -ex
 
 # This shouldn't be in the Dockerfile or containers built from the same image
 # will have the same credentials.
-#if [ ! -e "$HOME/.bitcoin/bitcoin.conf" ]; then
-    mkdir -p $HOME/.bitcoin
+mkdir -p $HOME/.bitcoin
 
-    echo "Creating bitcoin.conf"
+echo "Creating bitcoin.conf"
 
-    # Seed a random password for JSON RPC server
-    cat <<EOF > $HOME/.bitcoin/bitcoin.conf
-zmqpubhashtx=${ZMQPUBHASHTX:-""}
-zmqpubhashblock=${ZMQPUBHASHBLOCK:-""}
-zmqpubhashblock=${ZMQPUBRAWBLOCK:-""}
-zmqpubrawtx=${ZMQPUBRAWTX:-""}
+# Seed a random password for JSON RPC server
+cat <<EOF > $HOME/.bitcoin/bitcoin.conf
 prune=${PRUNE:-0}
 testnet=${TESTNET:-1}
 disablewallet=${DISABLEWALLET:-1}
@@ -23,7 +18,10 @@ rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
 EOF
 
-#fi
+[[ -n $ZMQPUBHASHTX ]] && echo "zmqpubhashtx=${ZMQPUBHASHTX}" >> $HOME/.bitcoin/bitcoin.conf
+[[ -n $ZMQPUBHASHBLOCK ]] && echo "zmqpubhashblock=${ZMQPUBHASHBLOCK}" >> $HOME/.bitcoin/bitcoin.conf
+[[ -n $ZMQPUBRAWBLOCK ]] && echo "zmqpubrawblock=${ZMQPUBRAWBLOCK}" >> $HOME/.bitcoin/bitcoin.conf
+[[ -n $ZMQPUBRAWTX ]] && echo "zmqpubrawtx=${ZMQPUBRAWTX}" >> $HOME/.bitcoin/bitcoin.conf
 
 cat $HOME/.bitcoin/bitcoin.conf
 
