@@ -27,7 +27,7 @@ ENV GOSU_VERSION 1.7
 RUN set -x \
 	&& apt-get update && apt-get install -y --no-install-recommends \
 		ca-certificates \
-		rabbitmq-server \
+		python \
 		wget \
 	&& wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture)" \
 	&& wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture).asc" \
@@ -37,11 +37,8 @@ RUN set -x \
 	&& rm -r "$GNUPGHOME" /usr/local/bin/gosu.asc \
 	&& chmod +x /usr/local/bin/gosu \
 	&& gosu nobody true \
-	&& rabbitmq-plugins enable rabbitmq_management \
-	&& rabbitmqctl add_user admin admin \
-	&& rabbitmqctl set_user_tags admin administrator \
-	&& rabbitmqctl set_permissions -p / admin ".*" ".*" ".*" \
-	&& wget -O /usr/local/bin/rabbitmqadmin http://localhost:15672/cli/rabbitmqadmin \
+	&& wget -O /usr/local/bin/rabbitmqadmin https://raw.githubusercontent.com/rabbitmq/rabbitmq-management/rabbitmq_v3_6_10/bin/rabbitmqadmin \
+	&& chmod +x /usr/local/bin/rabbitmqadmin \
 	&& apt-get purge -y \
 		ca-certificates \
 		wget \
