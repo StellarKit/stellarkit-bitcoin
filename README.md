@@ -66,7 +66,8 @@ Docker compose
       PRUNE: 600
     ports:
       - 18332:18332/tcp
-      - 18333:18333/tcp```
+      - 18333:18333/tcp
+```
 
 Documentation
 -------------
