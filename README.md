@@ -53,7 +53,8 @@ Quick Start
 Docker compose
 --------------
 
-```  bitcoind:
+```
+bitcoind:
     image: heathmont/bitcoind
     volumes:
       - ~/test-volumes/bitcoin:/bitcoin
