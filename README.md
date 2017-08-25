@@ -50,6 +50,23 @@ Quick Start
 
 4. Install optional init scripts for upstart and systemd are in the `init` directory.
 
+Docker compose
+--------------
+
+```  bitcoind:
+    image: heathmont/bitcoind
+    volumes:
+      - ~/test-volumes/bitcoin:/bitcoin
+    restart: unless-stopped
+    environment:
+      DISABLEWALLET: 0
+      RPCPASSWORD: bitcoinrpc
+      RPCUSER: bitcoinrpc
+      TESTNET: 1
+      PRUNE: 600
+    ports:
+      - 18332:18332/tcp
+      - 18333:18333/tcp```
 
 Documentation
 -------------
