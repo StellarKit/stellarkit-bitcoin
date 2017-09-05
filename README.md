@@ -65,6 +65,8 @@ bitcoind:
       RPCUSER: bitcoinrpc
       TESTNET: 1
       PRUNE: 600
+      WALLETNOTIFY: /usr/local/bin/rabbitmqadmin --host=rabbitmq --username=admin --password=admin publish exchange=cashier routing_key=tx.bitcoin payload='%s''
+      BLOCKNOTIFY: /usr/local/bin/rabbitmqadmin --host=rabbitmq --username=admin --password=admin publish exchange=cashier routing_key=block.bitcoin payload='%s'
     ports:
       - 18332:18332/tcp
       - 18333:18333/tcp
