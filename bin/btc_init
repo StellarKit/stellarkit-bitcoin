@@ -12,6 +12,7 @@ echo "Creating bitcoin.conf"
 cat <<EOF > $HOME/.bitcoin/bitcoin.conf
 prune=${PRUNE:-0}
 testnet=${TESTNET:-1}
+regtest=${REGTEST:-1}
 disablewallet=${DISABLEWALLET:-1}
 printtoconsole=${PRINTTOCONSOLE:-1}
 rpcuser=${RPCUSER:-bitcoinrpc}
