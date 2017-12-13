@@ -21,6 +21,7 @@ EOF
 
 [[ -n $WALLETNOTIFY ]] && echo "walletnotify=${WALLETNOTIFY}" >> $HOME/.bitcoin/bitcoin.conf
 [[ -n $BLOCKNOTIFY ]] && echo "blocknotify=${BLOCKNOTIFY}" >> $HOME/.bitcoin/bitcoin.conf
+[[ -n $TXINDEX ]] && echo "txindex=1" >> $HOME/.bitcoin/bitcoin.conf
 [[ -n $ZMQPUBHASHTX ]] && echo "zmqpubhashtx=${ZMQPUBHASHTX}" >> $HOME/.bitcoin/bitcoin.conf
 [[ -n $ZMQPUBHASHBLOCK ]] && echo "zmqpubhashblock=${ZMQPUBHASHBLOCK}" >> $HOME/.bitcoin/bitcoin.conf
 [[ -n $ZMQPUBRAWBLOCK ]] && echo "zmqpubrawblock=${ZMQPUBRAWBLOCK}" >> $HOME/.bitcoin/bitcoin.conf
