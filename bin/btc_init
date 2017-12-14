@@ -15,10 +15,10 @@ testnet=${TESTNET:-1}
 regtest=${REGTEST:-0}
 disablewallet=${DISABLEWALLET:-1}
 printtoconsole=${PRINTTOCONSOLE:-1}
-rpcuser=${RPCUSER:-bitcoinrpc}
-rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
 EOF
 
+[[ -n $RPCUSER ]] && echo "rpcuser=${RPCUSER}" >> $HOME/.bitcoin/bitcoin.conf
+[[ -n $RPCPASSWORD ]] && echo "rpcpassword=${RPCPASSWORD}" >> $HOME/.bitcoin/bitcoin.conf
 [[ -n $WALLETNOTIFY ]] && echo "walletnotify=${WALLETNOTIFY}" >> $HOME/.bitcoin/bitcoin.conf
 [[ -n $BLOCKNOTIFY ]] && echo "blocknotify=${BLOCKNOTIFY}" >> $HOME/.bitcoin/bitcoin.conf
 [[ -n $TXINDEX ]] && echo "txindex=1" >> $HOME/.bitcoin/bitcoin.conf
