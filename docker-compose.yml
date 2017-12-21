@@ -1,0 +1,15 @@
+bitcoind:
+    image: sgehrman/stellar-bitcoin
+    container_name: stellar-bitcoin
+    volumes:
+      - /home/steve/bitcoin-test:/bitcoin
+    restart: unless-stopped
+    environment:
+      DISABLEWALLET: 1
+      RPCPASSWORD: password
+      RPCUSER: user
+      TESTNET: 1
+      PRUNE: 600
+     ports:
+      - 18332:18332/tcp
+      - 18333:18333/tcp
