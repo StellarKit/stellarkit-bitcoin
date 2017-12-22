@@ -1,5 +1,5 @@
 apk update
 
-apk add make gawk git libtool boost-dev libressl-dev db-dev miniupnpc-dev protobuf-dev libqrencode-dev libevent-dev chrpath g++
+apk add autoconf make gawk git libtool boost-dev libressl-dev db-dev miniupnpc-dev protobuf-dev libqrencode-dev libevent-dev chrpath g++
 
 echo "Done installing dependencies..."
