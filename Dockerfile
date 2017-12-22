@@ -1,8 +1,8 @@
 FROM ubuntu:latest as builder
 
-ADD apk-build /apk-build
-RUN chmod +x /apk-build
-RUN /apk-build
+ADD apt-build /apt-build
+RUN chmod +x /apt-build
+RUN /apt-build
 
 RUN git clone --depth 1 --branch 0.15 https://github.com/bitcoin/bitcoin \
 	  && cd bitcoin \
@@ -12,7 +12,7 @@ RUN git clone --depth 1 --branch 0.15 https://github.com/bitcoin/bitcoin \
 		&& make install
 
 
-FROM ubuntu:latest  
+FROM ubuntu:latest
 
 COPY --from=builder /usr/local/bin/bitcoind /usr/local/bin/bitcoind
 
