@@ -1,5 +1,4 @@
-apk update
-
-apk add autoconf automake make gawk git libtool boost-dev libressl-dev db-dev miniupnpc-dev protobuf-dev libqrencode-dev libevent-dev chrpath g++
+apt-get update
+apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
 
 echo "Done installing dependencies..."

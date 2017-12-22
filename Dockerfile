@@ -1,4 +1,4 @@
-FROM alpine:latest as builder
+FROM ubuntu:latest as builder
 
 ADD apk-build /apk-build
 RUN chmod +x /apk-build
@@ -12,7 +12,7 @@ RUN git clone --depth 1 --branch 0.15 https://github.com/bitcoin/bitcoin \
 		&& make install
 
 
-FROM alpine:latest as builder
+FROM ubuntu:latest  
 
 COPY --from=builder /usr/local/bin/bitcoind /usr/local/bin/bitcoind
 
