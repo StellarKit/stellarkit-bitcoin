@@ -1,5 +1,5 @@
 apk update
 
-apk add conf make gawk git libtool boost-dev libressl-dev db-dev miniupnpc-dev qt5-qtbase-dev qt5-qttools-dev protobuf-dev libqrencode-dev libevent-dev chrpath ca-certificates g++ musl-dev
+apk add autoconf automake gawk git libtool boost-dev libressl-dev db-dev miniupnpc-dev qt5-qtbase-dev qt5-qttools-dev protobuf-dev libqrencode-dev libevent-dev chrpath ca-certificates g++ musl-dev
 
 echo "Done installing dependencies..."
