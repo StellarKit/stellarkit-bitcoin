@@ -1,6 +1,6 @@
 #!/bin/bash
 
 apt-get update
-apt-get install -y git autoconf automake libqt5gui5 libqt5core5a libqt5dbus5 libprotobuf-dev protobuf-compiler
+apt-get install -y git build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
 
 echo "Done installing dependencies..."
