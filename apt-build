@@ -2,5 +2,6 @@
 
 apt-get update
 apt-get install -y git build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
+apt-get install -y gawk haveged libboost-dev python3
 
 echo "Done installing dependencies..."
