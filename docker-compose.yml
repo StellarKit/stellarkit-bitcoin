@@ -1,17 +1,11 @@
 bitcoind:
     image: sgehrman/stellar-bitcoin
-    command: -testnet -printtoconsole
+    command: -testnet -printtoconsole -prune=600 -disablewallet -rpcpassword=password -rpcuser=user
     container_name: stellar-bitcoin
     volumes:
       - /home/steve/bitcoin-test:/bitcoin
     restart: unless-stopped
-    environment:
-      DISABLEWALLET: 1
-      RPCPASSWORD: password
-      RPCUSER: user
-      TESTNET: 1
-      PRUNE: 600
-     ports:
+    ports:
       - 18332:18332/tcp
       - 18333:18333/tcp
       - 8332:18332/tcp

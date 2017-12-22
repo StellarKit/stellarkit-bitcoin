@@ -16,10 +16,6 @@ FROM ubuntu:latest
 
 COPY --from=builder /usr/local/bin/bitcoind /usr/local/bin/bitcoind
 
-ADD create-config /create-config
-RUN chmod +x /create-config
-RUN /create-config
-
 EXPOSE 8332 8333 18332 18333
 
 ENTRYPOINT ["bitcoind"]
