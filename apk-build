@@ -1,4 +1,4 @@
 apt-get update
-apt-get install git build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
+apt-get install -y git build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
 
 echo "Done installing dependencies..."
