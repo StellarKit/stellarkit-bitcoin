@@ -1,5 +1,6 @@
 bitcoind:
     image: sgehrman/stellar-bitcoin
+    command: -testnet -printtoconsole
     container_name: stellar-bitcoin
     volumes:
       - /home/steve/bitcoin-test:/bitcoin
@@ -13,3 +14,5 @@ bitcoind:
      ports:
       - 18332:18332/tcp
       - 18333:18333/tcp
+      - 8332:18332/tcp
+      - 8333:18333/tcp

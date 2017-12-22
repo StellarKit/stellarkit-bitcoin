@@ -1,6 +1,4 @@
-Bitcoind for Docker
+Bitcoin for Stellar
 ===================
 
-Docker image that runs the Bitcoin bitcoind node in a container for easy deployment.
-
- 
+Docker image bitcoin for stellar

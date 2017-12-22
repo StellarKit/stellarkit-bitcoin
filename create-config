@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -ex
+
+mkdir -p /bitcoin/.bitcoin
+
+echo "Creating bitcoin.conf"
+
+cat <<EOF > /bitcoin/.bitcoin/bitcoin.conf
+prune=${PRUNE:-0}
+testnet=${TESTNET:-1}
+regtest=${REGTEST:-0}
+disablewallet=${DISABLEWALLET:-1}
+printtoconsole=${PRINTTOCONSOLE:-1}
+EOF
+
+[[ -n $RPCUSER ]] && echo "rpcuser=${RPCUSER}" >> /bitcoin/.bitcoin/bitcoin.conf
+[[ -n $RPCPASSWORD ]] && echo "rpcpassword=${RPCPASSWORD}" >> /bitcoin/.bitcoin/bitcoin.conf
+
+cat /bitcoin/.bitcoin/bitcoin.conf
+
+echo "built .bitcoin.conf"
