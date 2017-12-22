@@ -16,6 +16,10 @@ FROM ubuntu:latest
 
 COPY --from=builder /usr/local/bin/bitcoind /usr/local/bin/bitcoind
 
+ADD apt-server /apt-server
+RUN chmod +x /apt-server
+RUN /apt-server
+
 EXPOSE 8332 8333 18332 18333
 
 ENTRYPOINT ["bitcoind"]
