@@ -8,7 +8,7 @@ RUN git clone --depth 1 --branch 0.15 https://github.com/bitcoin/bitcoin \
 	  && cd bitcoin \
 		&& ./autogen.sh \
 		&& ./configure  --disable-tests --disable-wallet \
-		&& make -j \
+		&& make -j 4 \
 		&& make install
 
 
