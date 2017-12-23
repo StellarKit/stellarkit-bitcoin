@@ -15,6 +15,7 @@ RUN git clone --depth 1 --branch 0.15 https://github.com/bitcoin/bitcoin \
 FROM ubuntu:latest
 
 COPY --from=builder /usr/local/bin/bitcoind /usr/local/bin/bitcoind
+COPY --from=builder /usr/local/bin/bitcoind /usr/local/bin/bitcoin-cli
 
 ADD apt-server /apt-server
 RUN chmod +x /apt-server
