@@ -3,7 +3,7 @@ bitcoind:
     command: -testnet -printtoconsole -prune=600 -disablewallet -rpcpassword=password -rpcuser=user
     container_name: stellar-bitcoin
     volumes:
-      - /home/steve/bitcoin-test:/bitcoin
+      - /home/steve/bitcoin-test:/root
     restart: unless-stopped
     ports:
       - 18332:18332/tcp
