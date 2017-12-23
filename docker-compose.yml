@@ -1,6 +1,6 @@
 bitcoind:
     image: sgehrman/stellar-bitcoin
-    command: -testnet -printtoconsole -prune=600 -disablewallet -rpcpassword=password -rpcuser=user -dbcache=2000
+    command: -testnet -printtoconsole -prune=600 -disablewallet -rpcpassword=password -rpcuser=user -dbcache=2000 -server
     container_name: stellar-bitcoin
     volumes:
       - /home/steve/bitcoin-test:/root
