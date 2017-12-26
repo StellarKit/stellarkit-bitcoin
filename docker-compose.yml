@@ -6,8 +6,8 @@ bitcoind:
       - ~/bitcoin-test:/root
     restart: unless-stopped
     environment:
-      RPCPASSWORD: password
-      RPCUSER: user
+      RPCUSER: "user"
+      RPCPASSWORD: "password"
     ports:
       - "18332:18332"
       - "18333:18333"
