@@ -8,8 +8,14 @@ bitcoind:
     environment:
       RPCUSER: user
       RPCPASSWORD: password
+    networks:
+      - backend
     ports:
       - "18332:18332"
       - "18333:18333"
       - "8332:8332"
       - "8333:8333"
+
+networks:
+  backend:
+    driver: bridge
