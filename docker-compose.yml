@@ -1,20 +1,22 @@
-bitcoind:
-    image: sgehrman/stellar-bitcoin
-    command: -testnet -printtoconsole -prune=600 -disablewallet -dbcache=2000 -rpcallowip=0.0.0.0/0
-    container_name: stellar-bitcoin
-    volumes:
-      - ~/bitcoin-test:/root
-    restart: unless-stopped
-    environment:
-      RPCUSER: user
-      RPCPASSWORD: password
-    networks:
-      - backend
-    ports:
-      - "18332:18332"
-      - "18333:18333"
-      - "8332:8332"
-      - "8333:8333"
+version: "3"
+services:
+  bitcoind:
+      image: sgehrman/stellar-bitcoin
+      command: -testnet -printtoconsole -prune=600 -disablewallet -dbcache=2000 -rpcallowip=0.0.0.0/0
+      container_name: stellar-bitcoin
+      volumes:
+        - ~/bitcoin-test:/root
+      restart: unless-stopped
+      environment:
+        RPCUSER: user
+        RPCPASSWORD: password
+      networks:
+        - backend
+      ports:
+        - "18332:18332"
+        - "18333:18333"
+        - "8332:8332"
+        - "8333:8333"
 
 networks:
   backend:
