@@ -5,7 +5,7 @@ services:
       command:        -testnet -printtoconsole -prune=600 -disablewallet -dbcache=2000 -rpcallowip=0.0.0.0/0
       container_name: stellar-bitcoin
       volumes:
-        - ~/bitcoin-test:/root
+        - ~/stellar/bitcoin:/root
       restart:        unless-stopped
       environment:
         RPCUSER:      user
