@@ -9,9 +9,7 @@ then
   make -j 4
   make install
 else
-  # export for use in verify.sh
-  export BITCOIN_VERSION=0.15.1
-
+  BITCOIN_VERSION=0.15.1
   BITCOIN_FILE_NAME=bitcoin-$BITCOIN_VERSION-x86_64-linux-gnu.tar.gz
   BITCOIN_URL=https://bitcoin.org/bin/bitcoin-core-$BITCOIN_VERSION/$BITCOIN_FILE_NAME
 
@@ -27,7 +25,8 @@ else
   RESULT=$(shasum -a 256 -c SHA256SUMS.asc 2>&1 | grep OK)
   echo $RESULT
 
-  if [[ $RESULT != *"$BITCOIN_FILE_NAME: OK"* ]]; then
+  if [[ $RESULT != "$BITCOIN_FILE_NAME: OK" ]]
+  then
     exit 1;
   fi
 
