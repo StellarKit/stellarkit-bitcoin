@@ -19,6 +19,10 @@ Pull requests welcome!
 // test rpc
 curl --user user:password --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:18332/
 
+### Build from source
+The default behaviour of this image downloads the bitcoin binary, but if you would rather build it fresh, look inside bitcoin-docker/Dockerfile and change:
+ENV BUILD_FROM_SRC true
+
 ### Donations
 If you like the code, a donation would be appreciated. Even a single XLM!
 

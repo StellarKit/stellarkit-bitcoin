@@ -1,6 +1,6 @@
 FROM ubuntu:xenial as builder
 
-ENV BUILD_FROM_SRC 0
+ENV BUILD_FROM_SRC true
 
 ADD apt-build /apt-build
 RUN chmod +x /apt-build
