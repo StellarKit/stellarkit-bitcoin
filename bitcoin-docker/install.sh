@@ -23,7 +23,9 @@ else
 
   BITCOIN_ASC=https://bitcoin.org/bin/bitcoin-core-$BITCOIN_VERSION/SHA256SUMS.asc
   curl $BITCOIN_ASC -o SHA256SUMS.asc
+
   RESULT=$(shasum -a 256 -c SHA256SUMS.asc 2>&1 | grep OK)
+  echo $RESULT
 
   if [[ $RESULT != *"$BITCOIN_FILE_NAME: OK"* ]]; then
     exit 1;
