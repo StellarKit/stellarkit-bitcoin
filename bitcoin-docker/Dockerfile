@@ -6,10 +6,6 @@ ADD apt-build /apt-build
 RUN chmod +x /apt-build
 RUN /apt-build
 
-# gets run in install.sh
-ADD verify.sh /verify.sh
-RUN chmod +x /verify.sh
-
 ADD install.sh /
 RUN chmod +x /install.sh
 RUN /install.sh

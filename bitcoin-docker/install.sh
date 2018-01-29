@@ -17,8 +17,19 @@ else
 
   curl $BITCOIN_URL -o $BITCOIN_FILE_NAME
 
-  /verify.sh
+  # verify the download
+  curl https://bitcoin.org/laanwj-releases.asc -o releases.asc
+  gpg --import releases.asc
 
+  BITCOIN_ASC=https://bitcoin.org/bin/bitcoin-core-$BITCOIN_VERSION/SHA256SUMS.asc
+  curl $BITCOIN_ASC -o SHA256SUMS.asc
+  RESULT=$(shasum -a 256 -c SHA256SUMS.asc 2>&1 | grep OK)
+
+  if [[ $RESULT != *"$BITCOIN_FILE_NAME: OK"* ]]; then
+    exit 1;
+  fi
+
+  # decompress and install
   tar zxvf $BITCOIN_FILE_NAME
   cp bitcoin-$BITCOIN_VERSION/bin/* /usr/local/bin
 fi
