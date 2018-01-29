@@ -18,7 +18,7 @@ RUN /install.sh
 FROM ubuntu:xenial
 
 COPY --from=builder /usr/local/bin/bitcoind /usr/local/bin/bitcoind
-# COPY --from=builder /usr/local/bin/bitcoin-cli /usr/local/bin/bitcoin-cli
+COPY --from=builder /usr/local/bin/bitcoin-cli /usr/local/bin/bitcoin-cli
 
 ADD apt-server /apt-server
 RUN chmod +x /apt-server

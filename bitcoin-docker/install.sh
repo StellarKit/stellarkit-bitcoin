@@ -2,12 +2,12 @@
 
 if [ $BUILD_FROM_SRC -gt 0 ]
 then
-  git clone --depth 1 --branch 0.15 https://github.com/bitcoin/bitcoin \
-    && cd bitcoin \
-    && ./autogen.sh \
-    && ./configure  --disable-tests --disable-wallet \
-    && make -j 4 \
-    && make install
+  git clone --depth 1 --branch 0.15 https://github.com/bitcoin/bitcoin
+  cd bitcoin
+  ./autogen.sh
+  ./configure  --disable-tests --disable-wallet
+  make -j 4
+  make install
 else
   # export for use in verify.sh
   export BITCOIN_VERSION=0.15.1
