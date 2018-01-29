@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $BUILD_FROM_SRC ]
+if [ "$BUILD_FROM_SRC" = true ]
 then
   git clone --depth 1 --branch 0.15 https://github.com/bitcoin/bitcoin
   cd bitcoin
