@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# not updating or upgrading for speed
-
+apt-get update
 apt-get install -y git wget curl build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
 apt-get install -y gawk haveged libboost-all-dev python3
 
