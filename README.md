@@ -20,7 +20,9 @@ Pull requests welcome!
 curl --user user:password --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:18332/
 
 ### Donations
-If you like this code, a [`donation`](https://stellarkit.io/#/donate) would be appreciated.
+If you like the code, a donation would be appreciated. Even a single XLM!
+
+Click here for the [`donation page`](https://stellarkit.io/#/donate). Nano support!
 
 ```
 XLM: GCYQSB3UQDSISB5LKAL2OEVLAYJNIR7LFVYDNKRMLWQKDCBX4PU3Z6JP
