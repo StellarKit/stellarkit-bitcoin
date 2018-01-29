@@ -1,6 +1,13 @@
 #!/bin/bash
 
 apt-get update
+apt-get upgrade -y
+
 apt-get install -y libboost-all-dev libssl-dev libevent-dev
+
+# keep image small
+apt-get clean
+apt-get autoremove
+rm -rf /var/lib/apt/lists/*
 
 echo "Done installing server dependencies..."

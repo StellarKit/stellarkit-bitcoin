@@ -1,29 +1,32 @@
-FROM ubuntu:latest as builder
+FROM ubuntu:xenial as builder
+
+ENV BUILD_FROM_SRC 0
 
 ADD apt-build /apt-build
 RUN chmod +x /apt-build
 RUN /apt-build
 
-RUN git clone --depth 1 --branch 0.15 https://github.com/bitcoin/bitcoin \
-	  && cd bitcoin \
-		&& ./autogen.sh \
-		&& ./configure  --disable-tests --disable-wallet \
-		&& make -j 4 \
-		&& make install
+# gets run in install.sh
+ADD verify.sh /verify.sh
+RUN chmod +x /verify.sh
 
+ADD install.sh /
+RUN chmod +x /install.sh
+RUN /install.sh
 
-FROM ubuntu:latest
+# -----------------------
+FROM ubuntu:xenial
 
 COPY --from=builder /usr/local/bin/bitcoind /usr/local/bin/bitcoind
-COPY --from=builder /usr/local/bin/bitcoin-cli /usr/local/bin/bitcoin-cli
+# COPY --from=builder /usr/local/bin/bitcoin-cli /usr/local/bin/bitcoin-cli
 
 ADD apt-server /apt-server
 RUN chmod +x /apt-server
 RUN /apt-server
 
-ADD start /start
-RUN chmod +x /start
+ADD entry.sh /entry.sh
+RUN chmod +x /entry.sh
 
 EXPOSE 8332 8333 18332 18333
 
-ENTRYPOINT ["/start"]
+ENTRYPOINT ["/entry.sh"]
