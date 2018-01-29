@@ -10,7 +10,7 @@ RUN /apt-build
 ADD verify.sh /verify.sh
 RUN chmod +x /verify.sh
 
-ADD install.sh /
+ADD install.sh /install.sh
 RUN chmod +x /install.sh
 RUN /install.sh
 
