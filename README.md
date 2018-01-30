@@ -21,7 +21,7 @@ curl --user user:password --data-binary '{"jsonrpc": "1.0", "id":"curltest", "me
 
 ### Build from source
 The default behaviour of this image downloads the bitcoin binary, but if you would rather build it fresh, look inside bitcoin-docker/Dockerfile and change:
-ENV BUILD_FROM_SRC true
+ENV BUILD_FROM_SRC 1
 
 ### Donations
 If you like the code, a donation would be appreciated. Even a single XLM!
