@@ -9,7 +9,7 @@ then
   make -j 4
   make install
 else
-  BITCOIN_VERSION=0.15.1
+  BITCOIN_VERSION=0.16.0
   BITCOIN_FILE_NAME=bitcoin-$BITCOIN_VERSION-x86_64-linux-gnu.tar.gz
   BITCOIN_URL=https://bitcoin.org/bin/bitcoin-core-$BITCOIN_VERSION/$BITCOIN_FILE_NAME
 
