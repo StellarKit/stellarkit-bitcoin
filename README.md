@@ -1,4 +1,4 @@
-## Stellar Bitcoin
+## StellarKit Bitcoin
 
 ### The simplest and cleanest Docker image for running bitcoin
 
@@ -22,6 +22,8 @@ curl --user user:password --data-binary '{"jsonrpc": "1.0", "id":"curltest", "me
 
 The default behaviour of this image downloads the bitcoin binary, but if you would rather build it fresh, look inside bitcoin-docker/Dockerfile and change:
 ENV BUILD_FROM_SRC 1
+
+Disclaimer: We not affiliated with, or sponsored or endorsed by, the Stellar Development Foundation.
 
 ### Donations
 
