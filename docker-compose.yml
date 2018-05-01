@@ -2,7 +2,7 @@ version:              "3"
 services:
   bitcoind:
       build:          ./bitcoin-docker
-      command:        -testnet -printtoconsole -prune=600 -disablewallet -dbcache=2000 -rpcallowip=0.0.0.0/0
+      command:        -testnet -printtoconsole -disablewallet -dbcache=10000 -rpcallowip=0.0.0.0/0
       container_name: stellar-bitcoin
       volumes:
         - ~/stellar/bitcoin:/root
