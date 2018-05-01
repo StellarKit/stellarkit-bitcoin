@@ -2,7 +2,7 @@
 
 if [ $BUILD_FROM_SRC -ne 0 ]
 then
-  git clone --depth 1 --branch 0.15 https://github.com/bitcoin/bitcoin
+  git clone --depth 1 --branch 0.16 https://github.com/bitcoin/bitcoin
   cd bitcoin
   ./autogen.sh
   ./configure  --disable-tests --disable-wallet
